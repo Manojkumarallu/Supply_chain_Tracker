@@ -1,0 +1,15 @@
+[package]
+name = "Supply_chain"
+version = "1.0.0"
+authors = []
+
+[addresses]
+manoj_addr = "0x4c9a090c98a0237d6cdcd651e7db1cbbd4b62eaa1845d3aace22ed1a89418ea5"
+[dev-addresses]
+
+[dependencies.AptosFramework]
+git = "https://github.com/aptos-labs/aptos-framework.git"
+rev = "mainnet"
+subdir = "aptos-framework"
+
+[dev-dependencies]
