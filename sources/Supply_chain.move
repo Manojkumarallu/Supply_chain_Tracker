@@ -3,7 +3,7 @@ module 0x4c9a090c98a0237d6cdcd651e7db1cbbd4b62eaa1845d3aace22ed1a89418ea5::Suppl
     use aptos_framework::timestamp;
     use std::string::String;
 
-    /// Struct representing a product in the supply chain
+    
     struct Product has store, key, drop {
         product_id: u64,
         name: String,
@@ -14,16 +14,16 @@ module 0x4c9a090c98a0237d6cdcd651e7db1cbbd4b62eaa1845d3aace22ed1a89418ea5::Suppl
         is_verified: bool,
     }
 
-    /// Struct to track all products for an account
+    
     struct ProductRegistry has key {
         next_product_id: u64,
     }
 
-    /// Error codes
+
     const E_PRODUCT_NOT_FOUND: u64 = 1;
     const E_NOT_AUTHORIZED: u64 = 2;
 
-    /// Initialize product registry for new accounts
+    
     fun init_registry(account: &signer) {
         if (!exists<ProductRegistry>(signer::address_of(account))) {
             let registry = ProductRegistry {
@@ -33,7 +33,7 @@ module 0x4c9a090c98a0237d6cdcd651e7db1cbbd4b62eaa1845d3aace22ed1a89418ea5::Suppl
         };
     }
 
-    /// Function to create a new product and add it to the supply chain
+
     public entry fun create_product(
         creator: &signer,
         name: String,
@@ -61,7 +61,7 @@ module 0x4c9a090c98a0237d6cdcd651e7db1cbbd4b62eaa1845d3aace22ed1a89418ea5::Suppl
         move_to(creator, product);
     }
 
-    /// Function to transfer product ownership and update its status
+    
     public entry fun transfer_product(
         current_owner: &signer,
         new_owner: address,
